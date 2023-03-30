@@ -25,7 +25,7 @@ void op2(int tamL, int tamC, float mat[tamL][tamC], int li, float k){
 }
 
 //Substituição da i-ésima linha por uma combinação linear desta com uma outra linha da matriz (Li -> aLi + bLj );
-void op3(int tamL, int tamC, float mat[tamL][tamC], int li, int lj, int a, int b){
+void op3(int tamL, int tamC, float mat[tamL][tamC], int li, int lj, float a, float b){
     int i,j;
     for(i=0;i<tamC;i++){
         mat[li][i] = (a * mat[li][i]) + (b * mat[lj][i]);
@@ -49,16 +49,15 @@ int alg(int tamL, int tamC, float mat[tamL][tamC]){
     int i,j,aux;
 
     for(i=0,j=0; i< tamL;i++,j++){
-        /*if (mat[i][j] == 0){
-        
-        }*/
         aux = i;
         while (mat[i][j] == 0){
-            printf("\n entrei no while");
+            printf("\nentrei no while\n");
             op1(tamL,tamC,mat,i, aux + 1);
             aux++;
         }
         //já não é mais 0
+        printf("\njá não é mais zero\n");
+        exibirMat(tamL,tamC,mat);
 
         //agora para evitar if dividimos a linha pelo numero do pivô para garantir o numero 1
         op2(3,4,mat,i,(1.0/mat[i][j]));
@@ -91,16 +90,19 @@ int alg(int tamL, int tamC, float mat[tamL][tamC]){
 
 int main()
 {
-    float mat[2][2] = {{1,2}, {3,4}};
+    //float mat[2][2] = {{1,2}, {3,4}};
     //exibirMat(2,2,mat);
 
-    float mat2[2][4] ={{1,3,2,5}, {2,1,-1,0}};
+    //float mat2[2][4] ={{1,3,2,5}, {2,1,-1,0}};
     //exibirMat(2,4,mat2);
 
     float matTest[3][4] = {{1,3,2,5}, {2,1,-1,0}, {0,2,-4,-2}};
-    exibirMat(3,4,matTest);
+    //exibirMat(3,4,matTest);
+    //alg(3,4,matTest);
 
-    alg(3,4,matTest);
+    float matTest2[3][4] = {{0,3,2,5}, {2,1,-1,0}, {0,2,-4,-2}};
+    exibirMat(3,4,matTest2);
+    alg(3,4,matTest2);
 
     //op1(2,2,mat,0,1);
     //exibirMat(2,2,mat);
