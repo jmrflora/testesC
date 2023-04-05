@@ -1,6 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void mostraResult(int tamL, int tamC, float mat[tamL][tamC]){
+    int i, j;
+    printf("\n");
+    for ( i = 0; i < tamL; i++)
+    {
+        printf("\nresultado:%.2f\n", mat[i][tamC -1]);
+    }
+    
+}
 
 //operação elementar de Permuta da i-ésima e j-ésima linha (Li <--> Lj );
 void op1(int tamL, int tamC, float mat[tamL][tamC], int li, int lj){
@@ -81,7 +90,7 @@ int alg(int tamL, int tamC, float mat[tamL][tamC]){
         printf("\nagora quem está em baixo \n\n");
         exibirMat(tamL,tamC,mat);
         //pivotiei a coluna
-
+        printf("pivotiei a linha\n");
         //hora de descer uma linha e andar uma casa
     }   
 
@@ -96,14 +105,6 @@ int main()
     //float mat2[2][4] ={{1,3,2,5}, {2,1,-1,0}};
     //exibirMat(2,4,mat2);
 
-    float matTest[3][4] = {{1,3,2,5}, {2,1,-1,0}, {0,2,-4,-2}};
-    //exibirMat(3,4,matTest);
-    //alg(3,4,matTest);
-
-    float matTest2[3][4] = {{0,3,2,5}, {2,1,-1,0}, {0,2,-4,-2}};
-    exibirMat(3,4,matTest2);
-    alg(3,4,matTest2);
-
     //op1(2,2,mat,0,1);
     //exibirMat(2,2,mat);
 
@@ -112,7 +113,20 @@ int main()
 
     //op3(2,4,mat2,1,0,1,-2);
     //exibirMat(2,4,mat2);
+    
 
+    //float matTest[3][4] = {{1,3,2,5}, {2,1,-1,0}, {0,2,-4,-2}};
+    //exibirMat(3,4,matTest);
+    //alg(3,4,matTest);
 
+    // float matTest2[3][4] = {{0,3,2,5}, {2,1,-1,0}, {0,2,-4,-2}};
+    // exibirMat(3,4,matTest2);
+    // alg(3,4,matTest2);
+
+    float matNovo[3][4] = {{1,1,1,1}, {0,1,1,5}, {1,1,0,2}};
+    exibirMat(3,4,matNovo);
+    alg(3,4,matNovo);
+
+    mostraResult(3,4,matNovo);
     return 0;
 }
